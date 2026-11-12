@@ -10,7 +10,8 @@
         "laravel/framework": "^13.17",
         "laravel/reverb": "^1.13",
         "laravel/tinker": "^3.0",
-        "pusher/pusher-php-server": "*"
+        "pusher/pusher-php-server": "*",
+        "twilio/sdk": "^8.14"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -19,7 +20,8 @@
         "laravel/pint": "^1.27",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.6",
-        "phpunit/phpunit": "^12.5.12"
+        "phpunit/phpunit": "^12.5.12",
+        "psy/psysh": "^0.12.24"
     },
     "autoload": {
         "psr-4": {

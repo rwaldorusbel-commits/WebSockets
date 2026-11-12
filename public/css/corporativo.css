@@ -1,0 +1,255 @@
+:root {
+    --azul-oscuro: #0f2742;
+    --azul: #1d4e89;
+    --azul-claro: #e8eff7;
+    --gris-texto: #5b6877;
+    --gris-borde: #d5dce5;
+    --fondo: #f4f6f9;
+    --verde: #1e7e4f;
+    --ambar: #b7791f;
+    --rojo: #b02a37;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    background: var(--fondo);
+    color: var(--azul-oscuro);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.encabezado {
+    background: var(--azul-oscuro);
+    color: #fff;
+    padding: 20px 48px;
+    border-bottom: 4px solid var(--azul);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+.encabezado h1 { font-size: 1.5rem; font-weight: 600; letter-spacing: .5px; }
+.encabezado p { margin-top: 4px; font-size: .9rem; color: #b9c7d8; }
+
+.contenedor { flex: 1; width: 100%; max-width: 1000px; margin: 0 auto; padding: 40px 24px; }
+.contenedor.ancho { max-width: 1400px; }
+.contenedor.angosto { max-width: 460px; }
+
+footer {
+    text-align: center; padding: 18px; font-size: .85rem;
+    color: var(--gris-texto); border-top: 1px solid var(--gris-borde); background: #fff;
+}
+
+/* Paneles */
+.panel {
+    background: #fff; border: 1px solid var(--gris-borde); border-top: 4px solid var(--azul);
+    border-radius: 8px; padding: 28px; box-shadow: 0 2px 6px rgba(15, 39, 66, .06);
+}
+.panel + .panel { margin-top: 24px; }
+.panel h2 { font-size: 1.2rem; margin-bottom: 16px; }
+
+/* Botones */
+.btn {
+    display: inline-block; padding: 12px 24px; border: 0; border-radius: 6px;
+    background: var(--azul); color: #fff; font: inherit; font-weight: 600;
+    cursor: pointer; text-decoration: none; transition: background .15s;
+}
+.btn:hover { background: var(--azul-oscuro); }
+.btn-verde { background: var(--verde); }
+.btn-verde:hover { background: #155e3a; }
+.btn-rojo { background: var(--rojo); }
+.btn-rojo:hover { background: #8a1f2a; }
+.btn-claro { background: transparent; border: 1px solid #b9c7d8; color: #fff; padding: 8px 16px; }
+.btn-claro:hover { background: rgba(255,255,255,.1); }
+.btn-grande { padding: 18px 32px; font-size: 1.1rem; }
+.btn[disabled] { opacity: .5; cursor: not-allowed; }
+
+/* Formularios */
+.campo { margin-bottom: 18px; }
+.campo label { display: block; font-weight: 600; margin-bottom: 6px; font-size: .9rem; }
+.campo input {
+    width: 100%; padding: 12px 14px; border: 1px solid var(--gris-borde);
+    border-radius: 6px; font: inherit;
+}
+.campo input:focus { outline: 2px solid var(--azul); border-color: var(--azul); }
+
+/* Alertas */
+.alerta { padding: 12px 16px; border-radius: 6px; margin-bottom: 18px; font-size: .95rem; }
+.alerta-error { background: #fbe9eb; color: var(--rojo); border: 1px solid #f0c2c7; }
+.alerta-info { background: var(--azul-claro); color: var(--azul); border: 1px solid #c4d5e8; }
+
+/* Estados */
+.badge {
+    display: inline-block; padding: 6px 14px; border-radius: 999px;
+    font-size: .85rem; font-weight: 700; text-transform: uppercase; letter-spacing: .5px;
+}
+.estado-espera { background: #fdf3dc; color: var(--ambar); }
+.estado-llamado { background: #dcf3e6; color: var(--verde); }
+.estado-atendido { background: var(--azul-claro); color: var(--azul); }
+.estado-cancelado { background: #fbe9eb; color: var(--rojo); }
+
+/* Ticket */
+.ticket { text-align: center; }
+.ticket .servicio { color: var(--gris-texto); text-transform: uppercase; letter-spacing: 1px; font-size: .9rem; }
+.ticket .codigo { font-size: 5rem; font-weight: 800; margin: 12px 0; letter-spacing: 2px; }
+.ticket .posicion { margin-top: 20px; color: var(--gris-texto); }
+.ticket .posicion strong { display: block; font-size: 2rem; color: var(--azul-oscuro); }
+
+/* Tablas */
+.tabla { width: 100%; border-collapse: collapse; }
+.tabla th, .tabla td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--gris-borde); }
+.tabla th { font-size: .8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--gris-texto); }
+
+/* Pantalla pública */
+.pantalla { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; }
+.llamados { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.llamado {
+    background: var(--azul-oscuro); color: #fff; border-radius: 8px;
+    padding: 32px; text-align: center; border-top: 6px solid var(--verde);
+}
+.llamado .codigo { font-size: 4.5rem; font-weight: 800; letter-spacing: 2px; }
+.llamado .puesto { margin-top: 8px; color: #b9c7d8; font-size: 1.1rem; }
+.lista-espera { list-style: none; }
+.lista-espera li {
+    display: flex; justify-content: space-between; padding: 14px 0;
+    border-bottom: 1px solid var(--gris-borde); font-size: 1.3rem; font-weight: 600;
+}
+.vacio { color: var(--gris-texto); text-align: center; padding: 24px 0; }
+
+/* Operador */
+.actual { text-align: center; }
+.actual .codigo { font-size: 4rem; font-weight: 800; margin: 8px 0 20px; }
+.acciones { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+@media (max-width: 800px) {
+    .pantalla { grid-template-columns: 1fr; }
+    .encabezado { padding: 16px 20px; }
+}
+/* Estilos para el Kiosco */
+.llamados {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.btn-servicio {
+    background: #fff;
+    border: 1px solid #d5dce5;
+    border-top: 4px solid #0f2742;
+    border-radius: 8px;
+    padding: 40px 20px;
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.btn-servicio:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    background: #f8fafc;
+}
+
+.circulo-servicio {
+    width: 80px;
+    height: 80px;
+    background: #0f2742;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.btn-servicio h3 {
+    font-size: 1.2rem;
+    color: #0f2742;
+    margin: 0 0 10px 0;
+}
+
+.btn-servicio span {
+    font-size: 0.8rem;
+    color: #5b6877;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+/* ==========================================
+   ESTILOS GLOBALES PARA FORMULARIOS Y TABLAS
+   (Para que se vea bien sin depender de Tailwind)
+   ========================================== */
+
+/* Campos de texto y selects */
+input[type="text"], input[type="email"], input[type="password"], input[type="date"], select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--gris-borde);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: var(--azul-oscuro);
+    background: #fff;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus, select:focus {
+    outline: none;
+    border-color: var(--azul);
+    box-shadow: 0 0 0 2px rgba(29, 78, 137, 0.2);
+}
+
+/* Tablas generales (las de admin) */
+.tabla-admin {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(15, 39, 66, .06);
+    border: 1px solid var(--gris-borde);
+    margin-top: 15px;
+}
+
+.tabla-admin th {
+    background: var(--fondo);
+    color: var(--gris-texto);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--gris-borde);
+}
+
+.tabla-admin td {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--gris-borde);
+    vertical-align: middle;
+}
+
+.tabla-admin tr:last-child td {
+    border-bottom: none;
+}
+
+.tabla-admin tr:hover {
+    background: #fcfcfc;
+}
+
+/* Espaciados globales que usaban de Tailwind */
+.mt-4 { margin-top: 1rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+.flex { display: flex; }
+.gap-4 { gap: 1rem; }
+.justify-between { justify-content: space-between; }
+.items-center { align-items: center; }

@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('counters', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('counters', function (Blueprint $t) {
+            $t->id();
+            $t->string('name');               // "Ventanilla 1"
+            $t->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
+            $t->boolean('is_active')->default(true);
+            $t->timestamps();
         });
     }
 
